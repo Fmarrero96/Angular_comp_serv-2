@@ -9,6 +9,7 @@ import { Product } from '../app/models/product.model';
 })
 export class AppComponent {
   imgParent = ''; //https://www.w3schools.com/howto/img_avatar.png
+  showImg = true;
 
   onLoaded(img: string){
     console.log ('padre',img);
@@ -39,5 +40,7 @@ export class AppComponent {
     image: './assets/img/books.jpg'
   },];
 
-
+  toggleImg (){
+    this.showImg = !this.showImg
+  }
 }

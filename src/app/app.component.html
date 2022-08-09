@@ -1,2 +1,6 @@
 <p><input type="text" [(ngModel)] = "imgParent"></p>
 <app-img (loaded)="onLoaded($event)" [img]="imgParent"></app-img> <!-- aca consumo el componente que cree -->
+
+<hr>
+
+<app-product [product]="product"  *ngFor="let product of products"></app-product>

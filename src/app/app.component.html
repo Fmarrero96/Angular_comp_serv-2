@@ -1,5 +1,6 @@
 <p><input type="text" [(ngModel)] = "imgParent"></p>
-<app-img (loaded)="onLoaded($event)" [img]="imgParent"></app-img> <!-- aca consumo el componente que cree -->
+<button (click)="toggleImg()">Toggle</button>
+<app-img *ngIf="showImg" (loaded)="onLoaded($event)" [img]="imgParent"></app-img> <!-- aca consumo el componente que cree -->
 
 <hr>
 

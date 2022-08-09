@@ -1,6 +1,6 @@
-
-<h3>{{counter}}</h3>
-<img width="200" (load)="imgLoaded()" (error)="imgError()"  [src]="img" *ngIf="img;else elseImg"> <!-- llamo al otro template si esta vacio -->
+<!-- 
+<h3>{{counter}}</h3> -->
+<img (load)="imgLoaded()" (error)="imgError()"  [src]="img" *ngIf="img;else elseImg"> <!-- llamo al otro template si esta vacio -->
 <ng-template #elseImg>
     <img [src]="imageDefault" alt="">
 </ng-template>

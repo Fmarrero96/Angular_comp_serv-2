@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { outputAst } from '@angular/compiler';
+import { Component, OnInit, Input , Output, EventEmitter} from '@angular/core';
 
 import { Product } from '../../models/product.model';
 
@@ -20,6 +21,12 @@ export class ProductComponent implements OnInit {
     name: '',
     image: '',
     price: 0
+  }
+
+  @Output() addedProduct = new EventEmitter<Product>;
+
+  onAddToCart(){
+    this.addedProduct.emit(this.product); // preparando en el hijo para que el padre escuche
   }
 
 }

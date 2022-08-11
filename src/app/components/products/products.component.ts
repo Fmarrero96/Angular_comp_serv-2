@@ -13,6 +13,8 @@ export class ProductsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  myShoppingCart: Product[] = [];
+  total = 0;
   products: Product [] = [{
     id: '1',
     name: 'EL mejor juguete',
@@ -37,5 +39,10 @@ export class ProductsComponent implements OnInit {
     price: 23,
     image: './assets/img/books.jpg'
   },];
+
+  onAddToShoppingCar(product:Product){
+    this.myShoppingCart.push(product);
+    this.total = this.myShoppingCart.reduce((sum, item) => sum + item.price,0);
+  }
 
 }

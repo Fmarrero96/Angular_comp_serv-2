@@ -10,6 +10,7 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ProductsComponent implements OnInit {
 
+
   constructor(private storeService: StoreService, private productsService:ProductsService) { this.myShoppingCart = this.storeService.getShoppingCart(); } //inyeccion de dependencia
 
   ngOnInit(): void {
@@ -22,6 +23,8 @@ export class ProductsComponent implements OnInit {
   myShoppingCart: Product[] = [];
   total = 0;
   products: Product [] = [];
+  today = new Date();
+  date =  new Date(2021,1,21);
 
   onAddToShoppingCar(product:Product){
     this.storeService.addProduct(product);

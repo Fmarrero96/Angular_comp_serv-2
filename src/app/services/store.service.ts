@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../models/product.model';
 
-@Injectable({
+@Injectable({ // decorador
   providedIn: 'root'
 })
 export class StoreService {

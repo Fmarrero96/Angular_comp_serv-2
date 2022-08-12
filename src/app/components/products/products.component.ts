@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
 import { StoreService } from 'src/app/services/store.service';
+import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
   selector: 'app-products',
@@ -9,37 +10,18 @@ import { StoreService } from 'src/app/services/store.service';
 })
 export class ProductsComponent implements OnInit {
 
-  constructor(private storeService: StoreService) { this.myShoppingCart = this.storeService.getShoppingCart(); } //inyeccion de dependencia
+  constructor(private storeService: StoreService, private productsService:ProductsService) { this.myShoppingCart = this.storeService.getShoppingCart(); } //inyeccion de dependencia
 
   ngOnInit(): void {
+    this.productsService.getAllProducts()
+    .subscribe(data =>{
+      this.products = data;
+    })
   }
 
   myShoppingCart: Product[] = [];
   total = 0;
-  products: Product [] = [{
-    id: '1',
-    name: 'EL mejor juguete',
-    price: 565,
-    image: './assets/img/toy.jpg'
-  },
-  {
-    id: '2',
-    name: 'Bicicleta casi nueva',
-    price: 356,
-    image: './assets/img/bike.jpg'
-  },
-  {
-    id: '3',
-    name: 'Colleción de albumnes',
-    price: 34,
-    image: './assets/img/album.jpg'
-  },
-  {
-    id: '4',
-    name: 'Mis libros',
-    price: 23,
-    image: './assets/img/books.jpg'
-  },];
+  products: Product [] = [];
 
   onAddToShoppingCar(product:Product){
     this.storeService.addProduct(product);

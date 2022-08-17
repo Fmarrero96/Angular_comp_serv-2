@@ -34,10 +34,14 @@
       <div class="info">
         <div class="account">nicolas@nicolas.com</div>
         <div>
-          <a href="">
-            <img src="./assets/svg/icon_shopping_cart.svg" alt="logo">
-          </a>
-          <span class="counter">{{counter}}</span>
+          <button (click)="toggleMenuShopping()">
+            <img  src="./assets/svg/icon_shopping_cart.svg" alt="logo">
+            <span class="counter">{{counter}}</span>
+          </button>
+        </div>
+        <div class="side-menu" [class.active]="activeShopping" >
+          <button (click)="toggleMenuShopping()">Close</button>
+          <app-product [product]="product"  *ngFor="let product of myShopping" ></app-product>
         </div>
       </div>
     </div>

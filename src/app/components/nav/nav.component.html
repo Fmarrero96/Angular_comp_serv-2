@@ -41,7 +41,7 @@
         </div>
         <div class="side-menu" [class.active]="activeShopping" >
           <button (click)="toggleMenuShopping()">Close</button>
-          <app-product [product]="product"  *ngFor="let product of myShopping" ></app-product>
+          <app-shopping-products></app-shopping-products>
         </div>
       </div>
     </div>

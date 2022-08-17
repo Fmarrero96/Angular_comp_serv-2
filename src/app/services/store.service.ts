@@ -8,8 +8,10 @@ import { Product } from '../models/product.model';
 export class StoreService {
   private myShoppingCart: Product[] = []; //va como private asi no lo pueden acceder otros
   private myCart = new BehaviorSubject<Product[]>([]);
+  private total =  new BehaviorSubject<number>(0);
 
   myCart$ = this.myCart.asObservable();   //se le pone siempre signo peso al final al observable
+  total$ = this.total.asObservable();
 
 
   constructor() { }
@@ -17,6 +19,7 @@ export class StoreService {
   addProduct(product:Product){
     this.myShoppingCart.push(product);
     this.myCart.next(this.myShoppingCart);
+    this.total.next (this.getTotal());
   }
 
   getShoppingCart (){

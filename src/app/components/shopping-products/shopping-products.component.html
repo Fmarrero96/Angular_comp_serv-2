@@ -1,0 +1,9 @@
+<p>La cantidad de productos: {{myShopping.length}}</p>
+<p>Total $ {{total}}</p>
+<!-- <p>Today: {{today | date:'short'}}</p>
+<p>Today: {{today | timeAgo}}</p>
+<p> Otra fecha: {{date | date: 'yyyy..MM..dd'}}</p> -->
+<!-- <p>{{'Holasa askdjsakjasdka' | uppercase}}</p> -->
+<div class="scroll-container">
+<app-product class="scroll-page" [product]="product"  *ngFor="let product of myShopping " ></app-product>
+</div>

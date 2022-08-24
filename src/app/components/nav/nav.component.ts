@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { StoreService } from 'src/app/services/store.service';
+import { Product } from 'src/app/models/product.model';
+
 
 @Component({
   selector: 'app-nav',
@@ -9,6 +11,7 @@ import { StoreService } from 'src/app/services/store.service';
 export class NavComponent implements OnInit {
   activeMenu = false;
   counter = 0;
+  activeShopping = false; 
 
   constructor(
     private storeService : StoreService
@@ -20,6 +23,10 @@ export class NavComponent implements OnInit {
 
   toggleMenu(){
     this.activeMenu = !this.activeMenu;
+  }
+
+  toggleMenuShopping(){
+    this.activeShopping = !this.activeShopping;
   }
 
 }
